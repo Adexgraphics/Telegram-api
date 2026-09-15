@@ -15,6 +15,14 @@ class SignupData(BaseModel):
     phone: str
     otp: str
     password: str
+
+@app.get("/")
+def home():
+    return {"status": "ok", "message": "API is live - use POST /api/send"}
+
+@app.get("/docs-test")
+def test():
+    return {"docs": "working"}
     
 @app.post("/api/send")
 async def send_to_telegram(request: Request):
